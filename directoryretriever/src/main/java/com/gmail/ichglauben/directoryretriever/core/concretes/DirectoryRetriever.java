@@ -5,6 +5,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 import com.gmail.ichglauben.directoryretriever.core.utils.abstracts.CustomClass;
+import com.gmail.ichglauben.directoryretriever.core.utils.concretes.GlobalConstants;
 
 public class DirectoryRetriever extends CustomClass {
 
@@ -40,7 +41,7 @@ public class DirectoryRetriever extends CustomClass {
 		// if user selects a directory...
 		if (dialog == JFileChooser.APPROVE_OPTION) {
 			file = chooser.getSelectedFile();
-			path = file.toPath().toAbsolutePath().toString().trim();
+			path = file.toPath().toAbsolutePath().toString().trim() + GlobalConstants.FILESEPARATOR;
 		}
 		// else the user cancelled the dialog
 		else {

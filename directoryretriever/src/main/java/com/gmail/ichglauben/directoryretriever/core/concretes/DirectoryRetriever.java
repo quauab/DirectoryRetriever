@@ -8,8 +8,6 @@ import com.gmail.ichglauben.directoryretriever.core.utils.abstracts.CustomClass;
 
 public class DirectoryRetriever extends CustomClass {
 
-	private static String dir_name;
-
 	/** Handles the cancellation of the file browser. */
 	private static void handleCancellation() {
 		Object[] options = { "Yes, please exit", "Nope, cancel that!" };
@@ -42,8 +40,7 @@ public class DirectoryRetriever extends CustomClass {
 		// if user selects a directory...
 		if (dialog == JFileChooser.APPROVE_OPTION) {
 			file = chooser.getSelectedFile();
-			dir_name = file.getName();
-			path = file.getAbsolutePath().trim();
+			path = file.toPath().toAbsolutePath().toString().trim();
 		}
 		// else the user cancelled the dialog
 		else {
@@ -66,8 +63,5 @@ public class DirectoryRetriever extends CustomClass {
 
 	private final static javax.swing.ImageIcon img = createImageIcon("/medium.gif");
 
-	public static String getDirectoryName() {
-		return dir_name;
-	}
-
+	public String toString() { return "Directory Retriever"; }
 }

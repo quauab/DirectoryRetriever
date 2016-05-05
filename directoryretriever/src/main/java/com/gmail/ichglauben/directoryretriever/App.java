@@ -9,11 +9,6 @@ public class App extends CustomClass {
 //		testRetrieveDirectoryFilter();
 	}
 
-	private static void testRetrieveDirectoryFilter() {
-		String dir = DirectoryRetriever.retrieveDirectory("Jpegs", new String[] {"jpg"});
-		print("Chosen directory: " + dir);
-	}
-
 	private static void testRetrieveDirectoryNoArgs() {
 		String dir = DirectoryRetriever.retrieveDirectory();
 		print("Chosen directory: " + dir);

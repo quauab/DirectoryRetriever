@@ -51,33 +51,6 @@ public class DirectoryRetriever extends CustomClass {
 		return path;
 	}
 	
-	public static String retrieveDirectory(String desc, String[] exts) {
-		detectPlatform();
-		javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
-		String path = null;
-		File file = null;
-		javax.swing.filechooser.FileFilter filter = new javax.swing.filechooser.FileNameExtensionFilter(desc, exts);
-		chooser.setFileFilter(filter);
-		
-		int selectionMode = JFileChooser.DIRECTORIES_ONLY;
-		chooser.setFileSelectionMode(selectionMode);
-
-		// open file chooser dialog
-		int dialog = chooser.showOpenDialog(null);
-
-		// if user selects a directory...
-		if (dialog == JFileChooser.APPROVE_OPTION) {
-			file = chooser.getSelectedFile();
-			path = file.toPath().toAbsolutePath().toString().trim() + GlobalConstants.FILESEPARATOR;
-		}
-		// else the user cancelled the dialog
-		else {
-			path = null;
-			handleCancellation();
-		}
-		return path;
-	}
-
 	/** Returns ImageIcon */
 	private static javax.swing.ImageIcon createImageIcon(String path) {
 		java.net.URL imgURL = DirectoryRetriever.class.getResource(path);
